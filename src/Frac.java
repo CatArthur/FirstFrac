@@ -22,10 +22,10 @@ public class Frac {
         return new Frac(a * v,b);
     }
     Frac div(Frac v) {
-        return new Frac(a /v.a,b/v.b);
+        return new Frac(a*v.b,b*v.a);
     }
     Frac div(int v) {
-        return new Frac(a * v,b);
+        return new Frac(a,v*b);
     }
     Frac inverse() {
         return new Frac(b,a);
@@ -34,7 +34,12 @@ public class Frac {
         return b==0;
     }
     boolean isShorten() {
-        return a%b==0;
+        boolean d=false;
+        for (int i = (a>b?b:a); i >1; i--) {
+            d=b%i==0&&a%i==0;
+            if(d) break;
+        }
+        return  d;
     }
     Frac shorting() {
         Frac d=new Frac(a,b);
