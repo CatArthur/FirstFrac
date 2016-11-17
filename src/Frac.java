@@ -49,6 +49,8 @@ public class Frac {
                 break;
             }
         }
+        a*=(b<0?-1:1);
+        b*=(b<0?-1:1);
         return d;
     }
     boolean isEqual(Frac v) {
